@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JQuery</title>
+
+	<link href="Styles/reset.css" rel="stylesheet" />
+	<link href="Styles/style.css" rel="stylesheet" />
+
+	<script src="Scripts/jquery-1.11.3.min.js"></script>
+	<script src="Scripts/util.js"></script>
+	<script src="Task 3.01/select-sorter.js"></script>
+</head>
+<body>
+
+	<div class="head-container">
+		<p class="head-font">JQuery</p>
+	</div>
+
+	<div class="content">
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">Select sorter</p>
+			</div>
+			<div class="form">
+				<div class="radio-container">
+					<label>Sorting criteria: <input type="radio" id="rbSortCriteriaValue" name="rbSortCriteria" checked="checked" />value</label>
+					<label> <input type="radio" name="rbSortCriteria" />text</label>
+				</div>
+				<div class="radio-container">
+					<label>Sorting direction: <input type="radio" id="rbSortDirAsc" name="rbSortDir" checked="checked" />ascending</label>
+					<label> <input type="radio" name="rbSortDir" />descending</label>
+				</div>
+				<div class="radio-container">
+					<label>Data type: <input type="radio" id="rbSortDataTypeNumber" name="rbSortDataType" checked="checked" />number</label>
+					<label> <input type="radio" name="rbSortDataType" />string</label>
+				</div>
+				<label for="select">Select list: </label>
+				<select id="select" class="select">
+					<option value="1">One (1)</option>
+					<option value="2">Two (2)</option>
+					<option value="3">Three (3)</option>
+					<option value="4">Four (4)</option>
+					<option value="5">Five (5)</option>
+					<option value="6">Six (6)</option>
+					<option value="7">Seven (7)</option>
+					<option value="8">Eight (8)</option>
+					<option value="9">Nine (9)</option>
+					<option value="10">Ten (10)</option>
+				</select>
+				<input type="button" id="bSelectSort" class="button" value="Sort" />
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
