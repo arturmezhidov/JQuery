@@ -71,11 +71,20 @@
     <Content Include="Styles\reset.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Task 3.01\select-sorter.js" />
+    <Content Include="Task 3.02\in-view-selector.js" />
+    <Content Include="Task 3.03\tab-control.js" />
+    <Content Include="Task 3.04\tooltip.js" />
+    <Content Include="Task 3.05\navigator.js" />
+    <Content Include="Task 3.06\player.js" />
+    <Content Include="Task 3.07\select-list.js" />
+    <Content Include="Task 3.08\blocking.js" />
+    <Content Include="Task 3.09\table-sort.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

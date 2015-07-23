@@ -8,7 +8,17 @@
 
 	<script src="Scripts/jquery-1.11.3.min.js"></script>
 	<script src="Scripts/util.js"></script>
+
 	<script src="Task 3.01/select-sorter.js"></script>
+	<script src="Task 3.02/in-view-selector.js"></script>
+	<script src="Task 3.03/tab-control.js"></script>
+	<script src="Task 3.04/tooltip.js"></script>
+	<script src="Task 3.05/navigator.js"></script>
+	<script src="Task 3.06/player.js"></script>
+	<script src="Task 3.07/select-list.js"></script>
+	<script src="Task 3.08/blocking.js"></script>
+	<script src="Task 3.09/table-sort.js"></script>
+
 </head>
 <body>
 
@@ -20,7 +30,7 @@
 
 		<div class="task-container">
 			<div class="task-head-container">
-				<p class="task-head-font">Select sorter</p>
+				<p class="task-head-font">1. Select sorter</p>
 			</div>
 			<div class="form">
 				<div class="radio-container">
@@ -49,6 +59,165 @@
 					<option value="10">Ten (10)</option>
 				</select>
 				<input type="button" id="bSelectSort" class="button" value="Sort" />
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">2. Elements in viewport</p>
+			</div>
+			<div class="form">
+				<label for="selectorInViewColors">Select color for elements in viewport: </label>
+				<select id="selectorInViewColors" class="select">
+					<option value="red">Red</option>
+					<option value="blue">Blue</option>
+					<option value="yellow">Yellow</option>
+					<option value="black">Black</option>
+					<option value="gray">Gray</option>
+					<option value="white">White</option>
+				</select>
+				<input type="button" id="bSelectorInView" class="button" value="Set" />
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">3. Tab сontrol</p>
+			</div>
+			<div class="text-box-container">
+				<label class="label">Page names: <input type="text" id="tbTabControl" class="text-box" value="page1 page2 page3" /></label>
+			</div>
+			<div class="text-box-container">
+				<label class="label">Selected page index: <input type="text" id="tbTabControlSelect" value="2" /></label>
+				<input type="button" id="bTabControl" class="button" value="Create" />
+			</div>
+			<div id="tab-control">
+				<!--Container for TabControl-->
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">4. ToolTip</p>
+			</div>
+			<div id="tool-tip-element">
+				This block has ToolTip
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">5. Navigator</p>
+			</div>
+			<table class="table">
+				<tr>
+					<td>Surname</td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td>Middlename</td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td>E-mail</td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="text" /></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">6. Player</p>
+			</div>
+			<div class="button-container">
+				<input type="button" id="bPlayer" class="button" value="Play" />
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">7. Select list</p>
+			</div>
+			<div class="text-box-container">
+				<label class="label">Enter data: <input type="text" id="tbSelectList" class="" /></label>
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">8. User interface blocking</p>
+			</div>
+			<div class="user-interface">
+				<label class="label">Enter data: <input type="text" id="tbBlocking" class="text-box" /></label>
+				<input type="button" id="bBlocking" class="button" value="Some button" />
+			</div>
+			<div class="button-container">
+				<input type="button" id="bBlock" class="button" value="Block" />
+				<input type="button" id="bUnblock" class="button" value="Unblock" />
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">9. Table sorter</p>
+			</div>
+			<div class="form">
+				<label class="label">Column index: <input type="text" id="tbTableColumnIndex" value="2" /></label>
+				<div class="radio-container">
+					<label>Sorting direction: <input type="radio" id="rbTableSortDirAsc" name="rbTableSortDir" checked="checked" />ascending</label>
+					<label> <input type="radio" name="rbTableSortDir" />descending</label>
+				</div>
+				<div class="radio-container">
+					<label>Data type: <input type="radio" id="rbTableSortDataTypeNumber" name="rbTableSortDataType" checked="checked" />number</label>
+					<label> <input type="radio" name="rbTableSortDataType" />string</label>
+				</div>
+				<table id="table-sort" class="table-sort">
+					<thead>
+						<tr>
+							<th>№</th>
+							<th>String</th>
+							<th>Number</th>
+							<th>Mixed</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Man</td>
+							<td>546</td>
+							<td>29.77</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Apple</td>
+							<td>12</td>
+							<td>This is text</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Table</td>
+							<td>-5</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Play</td>
+							<td>10000</td>
+							<td>1 + 1 = 2</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="button-container">
+					<input type="button" id="bTableSort" class="button" value="Sort" />
+				</div>
 			</div>
 		</div>
 

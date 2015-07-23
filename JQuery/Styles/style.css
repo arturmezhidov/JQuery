@@ -50,7 +50,7 @@
 }
 
 .text-box-container {
-	margin-top: 20px;
+	padding: 20px;
 }
 
 .text-box {
@@ -64,8 +64,7 @@
 
 .button-container {
 	text-align: center;
-	padding-top: 20px;
-	padding-right: 5px;
+	padding: 10px;
 }
 
 .button {
@@ -93,4 +92,96 @@
 .select {
 	width: 300px;
 	margin: 10px;
+}
+
+.tab-control {
+	width: 100%;
+	background: #EEE;
+}
+
+ul.tab-head-container {
+	height: 28px;
+	line-height: 25px;
+	list-style: none;
+	border-bottom: 1px solid #DDD;
+	background: #FFF;
+}
+
+.tab-head-container .tab-head {
+	float: left;
+	display: inline;
+	margin: 0 1px -1px 0;
+	padding: 0 13px 1px;
+	cursor: pointer;
+	background: #EEEEEE;
+	border: 1px solid #E4E4E4;
+	border-bottom: 1px solid #F9F9F9;
+	position: relative;
+}
+
+	.tab-head-container .tab-head:hover {
+		color: black;
+		padding: 0 13px;
+		background: #FAFAFA;
+	}
+
+	.tab-head-container .tab-head.head-current {
+		color: #444;
+		font-weight: bold;
+		background: #FAFAFA;
+		padding: 0 13px 2px;
+		border: 1px solid #D4D4D4;
+		border-bottom: 1px solid #FAFAFA;
+	}
+
+.tab-page {
+	display: none;
+	border: 1px solid #D4D4D4;
+	border-width: 0 1px 1px;
+	background: #FAFAFA;
+	padding: 12px;
+}
+
+	.tab-page.page-current {
+		display: block;
+	}
+
+#tool-tip-element {
+	padding: 40px;
+	text-align: center;
+}
+
+.tool-tip {
+	border: 1px solid #444;
+	font-size: 14px;
+	max-width: 205px;
+	padding: 1em;
+	position: absolute;
+	z-index: 2000;
+	-ms-text-shadow: none;
+	text-shadow: none;
+	-ms-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.table {
+	margin: auto;
+	width: 50%;
+}
+
+	.table td {
+		padding: 10px;
+	}
+
+.user-interface {
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid gray;
+}
+
+.table-sort * {
+	padding: 10px;
+	border: 1px solid black;
 }
