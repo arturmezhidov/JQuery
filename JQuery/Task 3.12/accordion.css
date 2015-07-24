@@ -1,0 +1,15 @@
+﻿.accordion {
+	padding: 10px;
+}
+
+.accordion-head {
+	background: #AAA;
+	cursor: pointer;
+	text-align: center;
+	padding: 10px;
+}
+
+.accordion-body {
+	padding: 20px;
+	background: #CCC;
+}

@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Jellyfish.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts\util.js" />
@@ -79,12 +80,18 @@
     <Content Include="Task 3.07\select-list.js" />
     <Content Include="Task 3.08\blocking.js" />
     <Content Include="Task 3.09\table-sort.js" />
+    <Content Include="Task 3.10\image-zoom.js" />
+    <Content Include="Task 3.12\accordion.css" />
+    <Content Include="Task 3.12\accordion.js" />
+    <Content Include="Task 3.13\spinner.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Task 3.11\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
