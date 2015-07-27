@@ -1,0 +1,13 @@
+﻿.table-sort {
+	width: 80%;
+	margin: 5px auto;
+}
+
+	.table-sort * {
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.table-sort thead {
+		background: #C6C0C0;
+	}

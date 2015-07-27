@@ -28,7 +28,7 @@
 		pageContainer.children("div").eq(params.select || 0).addClass(params.pageSelected);
 
 		// initialize events
-		tab.delegate("." + params.head + ":not(." + params.headSelected + ")", 'click', function () {
+		tab.delegate("." + params.head + ":not(." + params.headSelected + ")", "click", function () {
 			$(this).addClass(params.headSelected)
 				.siblings()
 				.removeClass(params.headSelected)
@@ -40,8 +40,13 @@
 				.hide();
 		});
 
+		// clear childs
+		$(this).empty();
+
 		// append to parent
 		tab.appendTo(this);
+
+		return $(this);
 	}
 
 	// Set/Get page text function
@@ -74,8 +79,6 @@
 			select: selectindex
 		};
 
-		// clear childs
-		$("#tab-control").empty();
 
 		// create TabControl
 		$("#tab-control").createTabControl(classes, pagesName);

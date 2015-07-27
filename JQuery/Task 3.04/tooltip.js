@@ -4,13 +4,15 @@
 	$.fn.toolTip = function (text, options) {
 
 		// style for tooltip
-		options = {
-			background: (options && options.background) || "gray",
-			color: (options && options.color) || "#f0f000",
-			opacity: (options && options.opacity) || "0.7",
-			align: (options && options.align) || "left",
-			delay: (options && options.delay) || 800
+		var defaults = {
+			background: "gray",
+			color: "#f0f000",
+			opacity: "0.7",
+			align: "left",
+			delay: 800
 		}
+
+		options = $.extend(defaults, options);
 
 		// get text for tooltip
 		text = text || $(this).attr("title");
@@ -57,6 +59,7 @@
 
 	// Test example
 	var title = "Title of ToolTip<br />New line text";
+
 	var options = {
 		background: "#111",
 		color: "green",

@@ -1,29 +1,50 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 	<title>JQuery</title>
 
-	<link href="Styles/reset.css" rel="stylesheet" />
-	<link href="Styles/style.css" rel="stylesheet" />
-
+	<!--generic style-->
+	<link href="Styles/reset.css" rel="stylesheet"/>
+	<link href="Styles/style.css" rel="stylesheet"/>
+	<!--JS-library-->
 	<script src="Scripts/jquery-1.11.3.min.js"></script>
 	<script src="Scripts/util.js"></script>
-
+	<!--Task 1-->
+	<link href="Task 3.01/select-sorter.css" rel="stylesheet" />
 	<script src="Task 3.01/select-sorter.js"></script>
+	<!--Task 2-->
 	<script src="Task 3.02/in-view-selector.js"></script>
+	<!--Task 3-->
+	<link href="Task 3.03/tab-control.css" rel="stylesheet" />
 	<script src="Task 3.03/tab-control.js"></script>
+	<!--Task 4-->
+	<link href="Task 3.04/tooltip.css" rel="stylesheet" />
 	<script src="Task 3.04/tooltip.js"></script>
+	<!--Task 5-->
+	<link href="Task 3.05/navigator.css" rel="stylesheet" />
 	<script src="Task 3.05/navigator.js"></script>
+	<!--Task 6-->
+	<link href="Task 3.06/player.css" rel="stylesheet"/>
 	<script src="Task 3.06/player.js"></script>
+	<!--Task 7-->
 	<script src="Task 3.07/select-list.js"></script>
+	<!--Task 8-->
+	<link href="Task 3.08/style.css" rel="stylesheet"/>
 	<script src="Task 3.08/blocking.js"></script>
+	<!--Task 9-->
+	<link href="Task 3.09/table-sort.css" rel="stylesheet" />
 	<script src="Task 3.09/table-sort.js"></script>
+	<!--Task 10-->
+	<link href="Task 3.10/image-zoom.css" rel="stylesheet" />
 	<script src="Task 3.10/image-zoom.js"></script>
-
-	<link href="Task 3.12/accordion.css" rel="stylesheet" />
+	<!--Task 11-->
+	<link href="Task 3.11/ajax.css" rel="stylesheet"/>
+	<script src="Task 3.11/ajax.js"></script>
+	<!--Task 12-->
+	<link href="Task 3.12/accordion.css" rel="stylesheet"/>
 	<script src="Task 3.12/accordion.js"></script>
-
-	<link href="Task 3.13/spinner.css" rel="stylesheet" />
+	<!--Task 13-->
 	<script src="Task 3.13/spinner.js"></script>
 
 </head>
@@ -144,8 +165,18 @@
 			<div class="task-head-container">
 				<p class="task-head-font">6. Player</p>
 			</div>
+			<div class="player-container">
+				<span id="soundTimeCurrent"></span>
+				<input type="range" id="progress" class="player-progress" min="0" max="100" value="0" />
+				<span id="soundTimeEnd"></span>
+				<label> volume: <input type="range" id="volume" class="player-progress" min="0" max="100" value="100" /></label>
+			</div>
+			<div id="soundName" class="soundName"></div>
 			<div class="button-container">
-				<input type="button" id="bPlayer" class="button" value="Play" />
+				<input type="button" id="bPlay" class="button" value="Play" />
+				<input type="button" id="bPause" class="button" value="Pause" />
+				<input type="button" id="bPrevSound" class="button" value="<<" />
+				<input type="button" id="bNextSound" class="button" value=">>" />
 			</div>
 		</div>
 
@@ -167,8 +198,8 @@
 				<input type="button" id="bBlocking" class="button" value="Some button" />
 			</div>
 			<div class="button-container">
+				<label>Delay (sec): <input type="text" id="tbBlockingDelay" value="2" /></label>
 				<input type="button" id="bBlock" class="button" value="Block" />
-				<input type="button" id="bUnblock" class="button" value="Unblock" />
 			</div>
 		</div>
 
@@ -234,6 +265,16 @@
 			</div>
 			<div class="image-container">
 				<img src="Images/Jellyfish.jpg" id="img-zoom" class="img-zoom" />
+			</div>
+		</div>
+
+		<div class="task-container">
+			<div class="task-head-container">
+				<p class="task-head-font">11. AJAX</p>
+			</div>
+			<div id="ajaxLog"></div>
+			<div class="button-container">
+				<input type="button" id="example1" class="button" value="example1" />
 			</div>
 		</div>
 

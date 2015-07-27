@@ -21,7 +21,7 @@
 	$.fn.selectSort = function (criterion, direction, dataType) {
 
 		// get elements
-		var selectItems = this.children();
+		var selectItems = this.children("option");
 
 		// determine the direction
 		direction = direction === Direction.DESC
@@ -64,7 +64,7 @@
 		this.append(sortedList);
 
 		// chaining
-		return this;
+		return $(this);
 	}
 
 	// Test example

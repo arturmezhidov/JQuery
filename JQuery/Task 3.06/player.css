@@ -1,0 +1,18 @@
+﻿.player-container {
+	padding: 20px;
+}
+
+.player-progress {
+	-webkit-appearance: none;
+	-moz-apperance: none;
+	height: 8px;
+	background: #00bfff;
+}
+
+.soundName {
+	margin: 20px;
+}
+
+#progress {
+	width: 400px;
+}

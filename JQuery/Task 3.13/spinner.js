@@ -66,7 +66,7 @@
 			top: padding + "px"
 		}
 
-		// save inpur parent
+		// save input parent
 		var inputParent = $(this).parent();
 
 		// create spinner
@@ -105,7 +105,7 @@
 			.appendTo(buttonDown);
 
 		// events
-		buttonUp.click(function () {
+		buttonUp.on("click", function () {
 			var val = parseInt(input.val());
 			if (isNaN(val)) {
 				input.val("0");
@@ -113,7 +113,7 @@
 				input.val(val + option.incStep);
 			}
 		});
-		buttonDown.click(function () {
+		buttonDown.on("click", function () {
 			var val = parseInt(input.val());
 			if (isNaN(val)) {
 				input.val("0");

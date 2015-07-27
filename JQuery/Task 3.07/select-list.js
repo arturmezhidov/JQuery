@@ -6,6 +6,12 @@
 			return this;
 		}
 
+		var style = {
+			background: "white",
+			border: "1px solid #999",
+			position: "absolute"
+		}
+
 		// get input
 		var input = this;
 
@@ -15,22 +21,23 @@
 			list.append("<li>" + arr[i] + "</li>");
 		}
 
-		// calculate position
-		var width = input.width() + 2;
-		var top = input.offset().top + input.height() + 5;
-		var left = input.offset().left;
-
 		// set style
 		list.hide()
 			.appendTo("body")
-			.css({
-				background: "white",
-				border: "1px solid #999",
-				position: "absolute",
+			.css(style);
+
+		// calculate position and show
+		var show = function () {
+			var width = input.width() + 2;
+			var top = input.offset().top + input.height() + 5;
+			var left = input.offset().left;
+			list.css({
 				width: width,
 				top: top,
 				left: left
 			});
+			list.show();
+		}
 
 		// initialize events for items
 		var items = list.children("li");
@@ -40,7 +47,10 @@
 
 		// show/hide select-list
 		input.on("focus", function () {
-			list.show();
+			show();
+		});
+		input.on("click", function () {
+			show();
 		});
 		input.on("focusout", function () {
 			list.hide(500);

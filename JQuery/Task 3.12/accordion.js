@@ -7,7 +7,7 @@
 
 		accord.children(".accordion-body").hide();
 
-		accord.children(".accordion-head").click(function () {
+		accord.children(".accordion-head").on("click", function () {
 
 			var body = $(this).next();
 
@@ -18,6 +18,8 @@
 				body.slideDown();
 			}
 		});
+
+		return accord;
 	};
 
 	// Test example

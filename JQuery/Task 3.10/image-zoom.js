@@ -1,4 +1,6 @@
 ﻿$(function () {
+
+	// create magnifier plugin
 	$.fn.magnifier = function (options) {
 
 		// options
@@ -28,16 +30,17 @@
 
 		return this.each(function () {
 
+			// parent
+			var parent = $(this);
+
 			// parent size
-			var width = $(this).width();
-			var height = $(this).height();
-			var top = $(this).offset().top;
-			var left = $(this).offset().left;
+			var width = parent.width();
+			var height = parent.height();
 
 			// source image
 			var src = options.src
 				? options.src
-				: $(this).attr("src");
+				: parent.attr("src");
 
 			// create magnifier
 			var magni = $("<div/>").appendTo($("body"));
@@ -57,6 +60,9 @@
 						.appendTo($(this).parent());
 
 			function setPosition(e) {
+
+				var top = parent.offset().top;
+				var left = parent.offset().left;
 
 				var leftPos = parseInt(e.pageX - left);
 				var topPos = parseInt(e.pageY - top);
@@ -84,8 +90,8 @@
 				}
 			}
 
-			magni.mousemove(setPosition);
-			$(this).mousemove(setPosition);
+			magni.on("mousemove", setPosition);
+			$(this).on("mousemove", setPosition);
 		});
 	};
 

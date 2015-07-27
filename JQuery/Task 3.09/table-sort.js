@@ -16,7 +16,7 @@
 	$.fn.tableSort = function (columnIndex, direction, dataType) {
 
 		// get rows
-		var rows = this.find("tr").slice(1);
+		var rows = this.find("tr").slice(1); // slice head row
 
 		// determine the direction
 		direction = direction === Direction.DESC
@@ -51,7 +51,7 @@
 		rows.parent().append(sortedRows);
 
 		// chaining
-		return this;
+		return $(this);
 	};
 
 	// Test example

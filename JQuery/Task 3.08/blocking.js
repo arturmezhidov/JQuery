@@ -1,32 +1,48 @@
 ﻿$(function () {
 
 	// create plugin blocking user interface
-	$.fn.block = function (text, delay) {
+	$.fn.block = function (options) {
+
+		var defaults = {
+			text: "Unknow information",
+			delay: 800
+		}
+
+		options = $.extend(defaults, options);
 
 		var userInterface = this;
 		var msg = $("<p blocked='blocked-msg'></p>");
 
-		setTimeout(function () {
-			userInterface.find('*').prop('disabled', true);
-			msg.text(text);
-		}, delay);
+		// blocked
+		userInterface.find('*').prop('disabled', true);
+		msg.text(options.text);
 
-		msg.text("Blocking...");
+		// unblock
+		setTimeout(function () {
+			userInterface.find("*").prop("disabled", false);
+			msg.remove();
+		}, options.delay);
 
 		this.append(msg);
-	}
 
-	// create plugin unblocking user interface
-	$.fn.unblock = function () {
-		$(this).find("*").prop("disabled", false);
-		$(this).find("p[blocked='blocked-msg']").remove();
+		return $(this);
 	}
 
 	// Test example
 	$("#bBlock").on("click", function () {
-		$(".user-interface").block("Blocking message", 1000);
-	});
-	$("#bUnblock").on("click", function () {
-		$(".user-interface").unblock();
+
+		var delay = $("#tbBlockingDelay").val();
+
+		if (!isNaN(delay)) {
+
+			delay = parseInt(delay) * 1000;
+
+			var option = {
+				text: "Blocking message",
+				delay: delay
+			}
+
+			$(".user-interface").block(option);
+		}
 	});
 });

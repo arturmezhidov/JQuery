@@ -12,7 +12,7 @@
 			// set index
 			var index = i++;
 
-			$(this).on("keydown ", function (e) {
+			$(this).on("keydown", function (e) {
 
 				if (e.keyCode === 37 || e.keyCode === 38) {
 
@@ -37,7 +37,7 @@
 			});
 		});
 
-		return this;
+		return $(this);
 	};
 
 	// Test example
