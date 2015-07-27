@@ -30,6 +30,7 @@
 			var secondValue = $(secondItem).children().eq(columnIndex).text();
 
 			if (dataType === DataType.NUMBER) {
+				//REVIEW: Possibly need to add console error when value not a number
 				firstValue = parseInt(firstValue);
 				secondValue = parseInt(secondValue);
 			} else {

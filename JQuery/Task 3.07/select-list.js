@@ -1,11 +1,15 @@
 ﻿$(function () {
 
+	//REVIEW: noun
+	//REVIEW: it would be nice if mouse pointer changed over list of elements
+	//REVIEW: it would be great if elements change when mouse pointer over them
 	// Create select-list
 	$.fn.setList = function (arr) {
 		if (!arr) {
 			return this;
 		}
 
+		//NOTE: It would be great if styles be placed in *.css file like previously
 		var style = {
 			background: "white",
 			border: "1px solid #999",

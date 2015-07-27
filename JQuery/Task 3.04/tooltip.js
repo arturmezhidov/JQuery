@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+	//NOTE: here you use noun and this is great!
 	// ToolTip
 	$.fn.toolTip = function (text, options) {
 
@@ -12,9 +13,11 @@
 			delay: 800
 		}
 
+		//REVIEW: I think better to save options in $this.options
 		options = $.extend(defaults, options);
 
 		// get text for tooltip
+		//REVIEW: var $this = $(this)
 		text = text || $(this).attr("title");
 
 		// remove element title
@@ -54,6 +57,7 @@
 			$(this).mousemove(moveHandler);
 		});
 
+		//REVIEW: return $this
 		return this;
 	};
 

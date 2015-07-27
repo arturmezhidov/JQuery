@@ -1,5 +1,7 @@
-﻿$(function () {
+﻿//REVIEW: BLOCKED: https://db.tt/1GEPKAsL
+$(function () {
 
+	//REVIEW: noun
 	// ajax process show plugin
 	$.fn.showAJAX = function (options) {
 

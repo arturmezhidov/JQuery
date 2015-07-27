@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+	//REVIEW: noun
 	// navigator function
 	$.fn.initNavigator = function () {
 
@@ -14,6 +15,7 @@
 
 			$(this).on("keydown", function (e) {
 
+				//REVIEW: It would be great if you define enum for key codes
 				if (e.keyCode === 37 || e.keyCode === 38) {
 
 					// calculate prev index of input

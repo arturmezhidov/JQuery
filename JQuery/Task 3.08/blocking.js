@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+	//NOTE: no need to update but commonly another behaviour should be implemented. should be something like that: http://malsup.com/jquery/block/#demos
 	// create plugin blocking user interface
 	$.fn.block = function (options) {
 
