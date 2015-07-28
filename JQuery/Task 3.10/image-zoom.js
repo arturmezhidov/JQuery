@@ -10,8 +10,10 @@
 			borderColor: "#ABCDEF"
 		};
 
+		//REVIEW: I think better to save options somewhere
 		options = $.extend(defaults, options);
 
+		//NOTE: It would be great if styles be placed in *.css file like previously
 		// styles
 		var style = {
 			display: "none",

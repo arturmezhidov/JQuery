@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿//REVIEW: BLOCKED: couldn't be tested https://db.tt/5aYcXe6s
+$(function () {
 
 	// Spinner plugin
 	$.fn.spinner = function (option) {
@@ -23,6 +24,7 @@
 		var arrowSize = buttonHeight - (padding * 2);
 		var buttonWidth = (arrowSize * 2) + (padding * 2);
 
+		//NOTE: again about styles in js
 		// styles
 		var spinnerStyle = {
 			width: option.width + "px",

@@ -3,6 +3,7 @@
 	text-align: center;
 }
 
+/*NOTE: Great that u use separate css class for tooltip. Not good to use css styles in js.*/
 .tool-tip {
 	border: 1px solid #444;
 	font-size: 14px;

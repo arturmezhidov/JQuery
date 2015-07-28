@@ -1,4 +1,7 @@
-﻿$(function () {
+﻿//REVIEW: If click many times on sort button selected item is changed
+//NOTE: code looks good
+
+$(function () {
 
 	// ReSharper disable once InconsistentNaming
 	var Criterion = {
@@ -43,6 +46,7 @@
 			}
 
 			if (dataType === DataType.NUMBER) {
+				//REVIEW: Possibly need to add console error when value not a number
 				firstValue = parseInt(firstValue);
 				secondValue = parseInt(secondValue);
 			} else {
@@ -82,6 +86,7 @@
 			? DataType.NUMBER
 			: DataType.STRING;
 
+		//NOTE: Better to pass as one parameter: options {criterion: criterion, direction: direction, ...}
 		$("#select").selectSort(criterion, direction, dataType);
 	});
 });

@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+	//REVIEW: better to use noun for plug-in name. e.g. awesomeTabControl :)
 	// Create TabControl function
 	$.fn.createTabControl = function (params, pages) {
 
@@ -46,9 +47,11 @@
 		// append to parent
 		tab.appendTo(this);
 
+		//REVIEW: Local variable $this = $(this) could be defined
 		return $(this);
 	}
 
+	//REVIEW: this should be a part of tabControl, not separate function. We return $(this) why not to add pageText function to it?
 	// Set/Get page text function
 	$.fn.pageText = function (index, text) {
 
@@ -69,6 +72,7 @@
 		var pagesName = strPages.match(/[\S]+/g);
 		var selectindex = parseInt($("#tbTabControlSelect").val()) - 1;
 
+		//NOTE: This is great that class is used. But commonly no need to pass this class as parameter. Classes for plug-in commonly could be hardcoded. Styles will be rewrited by global document style.
 		var classes = {
 			tab: "tab-control",
 			headContainer: "tab-head-container",

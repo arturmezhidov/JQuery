@@ -1,8 +1,10 @@
 ﻿$(function () {
 
+	//NOTE: great
 	// Accordion plugin
 	$.fn.accordion = function () {
 
+		//Better to use $this not accord. And in global better to use full noun - accordion than accord
 		var accord = $(this);
 
 		accord.children(".accordion-body").hide();

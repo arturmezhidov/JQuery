@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿//REVIEW: BLOCKED: https://db.tt/WCez9Cev
+$(function () {
 
 	$.Player = function (list) {
 
