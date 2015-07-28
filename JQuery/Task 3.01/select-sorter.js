@@ -1,4 +1,4 @@
-﻿//REVIEW: If click many times on sort button selected item is changed
+﻿//REVIEW: If click many times on sort button selected item is changed (READY)
 //NOTE: code looks good
 
 $(function () {
@@ -21,13 +21,24 @@ $(function () {
 		STRING: 1
 	};
 
-	$.fn.selectSort = function (criterion, direction, dataType) {
+	$.fn.selectSort = function (options) {
+
+		var $this = $(this);
+
+		// options
+		var defaults = {
+			criterion: Criterion.TEXT,
+			direction: Direction.ASC,
+			dataType: DataType.STRING
+		}
+
+		options = $.extend(defaults, options);
 
 		// get elements
 		var selectItems = this.children("option");
 
 		// determine the direction
-		direction = direction === Direction.DESC
+		options.direction = options.direction === Direction.DESC
 			? -1
 			: 1;
 
@@ -37,7 +48,7 @@ $(function () {
 			var firstValue;
 			var secondValue;
 
-			if (criterion === Criterion.VALUE) {
+			if (options.criterion === Criterion.VALUE) {
 				firstValue = $(firstItem).val();
 				secondValue = $(secondItem).val();
 			} else {
@@ -45,8 +56,11 @@ $(function () {
 				secondValue = $(secondItem).text();
 			}
 
-			if (dataType === DataType.NUMBER) {
-				//REVIEW: Possibly need to add console error when value not a number
+			if (options.dataType === DataType.NUMBER) {
+				if (isNaN(firstValue) || isNaN(secondValue)) {
+					console.error("Error: sorting data not a number.");
+					return false;
+				}
 				firstValue = parseInt(firstValue);
 				secondValue = parseInt(secondValue);
 			} else {
@@ -55,8 +69,8 @@ $(function () {
 			}
 
 			var result = firstValue > secondValue
-				? direction
-				: -direction;
+				? options.direction
+				: -(options.direction);
 
 			return result;
 		};
@@ -64,15 +78,21 @@ $(function () {
 		// sorting
 		var sortedList = $(selectItems).sort(comparator);
 
+		// save selected item
+		var selectedItem = $this.val();
+
 		// add new sorted items
 		this.append(sortedList);
 
+		// set the selected item
+		$this.val(selectedItem);
+
 		// chaining
-		return $(this);
+		return $this;
 	}
 
 	// Test example
-	$("#bSelectSort").on("click", function () {
+	$("#bSelectSort").on("click", function() {
 
 		var criterion = util.isChecked("rbSortCriteriaValue")
 			? Criterion.VALUE
@@ -86,7 +106,10 @@ $(function () {
 			? DataType.NUMBER
 			: DataType.STRING;
 
-		//NOTE: Better to pass as one parameter: options {criterion: criterion, direction: direction, ...}
-		$("#select").selectSort(criterion, direction, dataType);
+		$("#select").selectSort({
+			criterion: criterion, 
+			direction: direction, 
+			dataType: dataType
+		});
 	});
 });

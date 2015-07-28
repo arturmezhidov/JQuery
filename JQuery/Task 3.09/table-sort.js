@@ -30,7 +30,10 @@
 			var secondValue = $(secondItem).children().eq(columnIndex).text();
 
 			if (dataType === DataType.NUMBER) {
-				//REVIEW: Possibly need to add console error when value not a number
+				if (isNaN(firstValue) || isNaN(secondValue)) {
+					console.error("Error: sorting data not a number.");
+					return false;
+				}
 				firstValue = parseInt(firstValue);
 				secondValue = parseInt(secondValue);
 			} else {

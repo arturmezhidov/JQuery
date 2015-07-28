@@ -7,3 +7,19 @@
 	width: 512px;
 	height: 384px;
 }
+
+.magnifier {
+	display: none;
+	position: absolute;
+	float: left;
+
+	width: 200px;
+	height: 200px;
+
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+
+	border: 3px solid #ABCDEF;
+	-ms-border-radius: 103px;
+	border-radius: 103px;
+}

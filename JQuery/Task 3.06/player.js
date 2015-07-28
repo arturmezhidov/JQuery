@@ -1,7 +1,7 @@
-﻿//REVIEW: BLOCKED: https://db.tt/WCez9Cev
+﻿// if you collapsed body of functions then looks is good
 $(function () {
 
-	$.Player = function (list) {
+	$.Player = function (list, controls) {
 
 		// this player
 		var $this = this;
@@ -109,6 +109,7 @@ $(function () {
 			this.sounds.push(audio);
 		}
 
+		// added sounds
 		if (list) {
 			if (typeof list === "string") {
 				this.addSound(list);
@@ -121,30 +122,56 @@ $(function () {
 				};
 			}
 		}
+
+		// initialize events UI
+		if (controls) {
+			if (controls.play) {
+				$(controls.play).click(function () {
+					$this.play();
+				});
+			}
+			if (controls.pause) {
+				$(controls.pause).click(function () {
+					$this.pause();
+				});
+			}
+			if (controls.prev) {
+				$(controls.prev).click(function () {
+					$this.prev();
+				});
+			}
+			if (controls.next) {
+				$(controls.next).click(function () {
+					$this.next();
+				});
+			}
+			if (controls.progress) {
+				$(controls.progress).click(function () {
+					$this.setTimeInPercent($(this).val());
+				});
+			}
+			if (controls.volume) {
+				$(controls.volume).click(function () {
+					$this.setVolume($(this).val());
+				});
+			}
+		}
 	};
 
 	// Test example
-	var player = new $.Player(["../Audio/qwer.mp3", "../Audio/Kalimba.mp3"]);
+
+	var controls = {
+		play: "#bPlay",
+		pause: "#bPause",
+		prev: "#bPrevSound",
+		next: "#bNextSound",
+		progress: "#progress",
+		volume: "#volume"
+	}
+
+	var player = new $.Player(["../Audio/qwer.mp3", "../Audio/Kalimba.mp3"], controls);
 	player.addSound("../Audio/Maid.mp3");
 
-	$("#bPlay").click(function () {
-		player.play();
-	});
-	$("#bPause").click(function () {
-		player.pause();
-	});
-	$("#bPrevSound").click(function () {
-		player.prev();
-	});
-	$("#bNextSound").click(function () {
-		player.next();
-	});
-	$("#progress").change(function () {
-		player.setTimeInPercent($(this).val());
-	});
-	$("#volume").change(function () {
-		player.setVolume($(this).val());
-	});
 	// events
 	player.beforePlay = function (name, duration) {
 		$("#soundName").text(name);

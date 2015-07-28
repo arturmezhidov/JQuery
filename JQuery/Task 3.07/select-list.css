@@ -1,0 +1,10 @@
+﻿.select-list {
+	background: white;
+	border: 1px solid #999;
+	position: absolute;
+	cursor: pointer;
+}
+
+.select-list-current-item {
+	background-color: #00bfff;
+}

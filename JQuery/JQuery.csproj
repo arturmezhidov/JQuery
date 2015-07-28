@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Task 3.07\select-list.css" />
     <Content Include="Task 3.11\ajax.txt" />
     <Content Include="Audio\Kalimba.mp3" />
     <Content Include="Audio\Maid.mp3" />
@@ -88,7 +89,7 @@
     <Content Include="Task 3.06\player.js" />
     <Content Include="Task 3.07\select-list.js" />
     <Content Include="Task 3.08\blocking.js" />
-    <Content Include="Task 3.08\style.css" />
+    <Content Include="Task 3.08\blocking.css" />
     <Content Include="Task 3.09\table-sort.css" />
     <Content Include="Task 3.09\table-sort.js" />
     <Content Include="Task 3.10\image-zoom.js" />
@@ -97,6 +98,7 @@
     <Content Include="Task 3.11\ajax.js" />
     <Content Include="Task 3.12\accordion.css" />
     <Content Include="Task 3.12\accordion.js" />
+    <Content Include="Task 3.13\spinner.css" />
     <Content Include="Task 3.13\spinner.js" />
     <Content Include="Web.config" />
   </ItemGroup>

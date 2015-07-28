@@ -1,8 +1,15 @@
 ﻿$(function () {
 
-	//REVIEW: noun
-	// navigator function
-	$.fn.initNavigator = function () {
+	var keys = {
+		KEY_LEFT: 37,
+		KEY_UP: 38,
+		KEY_RIGHT: 39,
+		KEY_DOWN: 40
+	}
+
+	$.fn.navigator = function () {
+
+		var $this = $(this);
 
 		// find text inputs
 		var inputs = this.find("input[type='text']");
@@ -16,7 +23,7 @@
 			$(this).on("keydown", function (e) {
 
 				//REVIEW: It would be great if you define enum for key codes
-				if (e.keyCode === 37 || e.keyCode === 38) {
+				if (e.keyCode === keys.KEY_LEFT || e.keyCode === keys.KEY_UP) {
 
 					// calculate prev index of input
 					var prevIndex = index > 0
@@ -26,7 +33,7 @@
 					// set focus
 					inputs.eq(prevIndex).focus();
 
-				} else if (e.keyCode === 39 || e.keyCode === 40) {
+				} else if (e.keyCode === keys.KEY_DOWN || e.keyCode === keys.KEY_RIGHT) {
 
 					// calculate next index of input
 					var nextIndex = index < (inputs.length - 1)
@@ -39,9 +46,9 @@
 			});
 		});
 
-		return $(this);
+		return $this;
 	};
 
 	// Test example
-	$(".table").initNavigator();
+	$(".table").navigator();
 });

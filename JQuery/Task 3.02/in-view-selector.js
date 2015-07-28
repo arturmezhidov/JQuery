@@ -4,12 +4,11 @@ $(function () {
 
 	// New selector "inView"
 	$.expr[":"].inView = function (obj) {
-		//NOTE: better to use $element than $el
-		var $el = $(obj);
+		var $element = $(obj);
 		var scrollTop = $(window).scrollTop();
 		var windowHeight = $(window).height();
-		var offset = $el.offset();
-		var visibility = scrollTop <= offset.top && ($el.outerHeight() + offset.top) < (scrollTop + windowHeight);
+		var offset = $element.offset();
+		var visibility = scrollTop <= offset.top && ($element.outerHeight() + offset.top) < (scrollTop + windowHeight);
 		return visibility;
 	};
 

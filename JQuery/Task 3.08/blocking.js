@@ -2,36 +2,52 @@
 
 	//NOTE: no need to update but commonly another behaviour should be implemented. should be something like that: http://malsup.com/jquery/block/#demos
 	// create plugin blocking user interface
-	$.fn.block = function (options) {
+	$.blockUI = function (options) {
 
 		var defaults = {
-			text: "Unknow information",
+			message: "Unknow information",
 			delay: 800
 		}
 
 		options = $.extend(defaults, options);
 
-		var userInterface = this;
-		var msg = $("<p blocked='blocked-msg'></p>");
+		// background
+		var background = $("<div />")
+			.addClass("blockUI-background")
+			.width($(document).width())
+			.height($(document).height())
+			.appendTo("body");
 
-		// blocked
-		userInterface.find('*').prop('disabled', true);
-		msg.text(options.text);
+		// alerter
+		var alerter = $("<div />")
+			.addClass("blockUI-alerter")
+			.appendTo(background);
 
+		// calculate position for alerter 
+		var top = ($(window).height() / 2) - alerter.height();
+		var left = ($(window).width() / 2) - (alerter.width() / 2);
+
+		alerter.css({
+			top: top + "px",
+			left: left + "px"
+		});
+
+		// message of alerter
+		$("<p />")
+			.addClass("blockUI-message")
+			.append(options.message)
+			.appendTo(alerter);
+	 
 		// unblock
 		setTimeout(function () {
-			userInterface.find("*").prop("disabled", false);
-			msg.remove();
+			background.remove();
 		}, options.delay);
-
-		this.append(msg);
-
-		return $(this);
 	}
 
 	// Test example
 	$("#bBlock").on("click", function () {
 
+		var message = $("#tbBlockingMessage").val();
 		var delay = $("#tbBlockingDelay").val();
 
 		if (!isNaN(delay)) {
@@ -39,11 +55,11 @@
 			delay = parseInt(delay) * 1000;
 
 			var option = {
-				text: "Blocking message",
+				message: message,
 				delay: delay
 			}
 
-			$(".user-interface").block(option);
+			$.blockUI(option);
 		}
 	});
 });

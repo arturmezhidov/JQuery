@@ -1,8 +1,11 @@
 ﻿$(function () {
 
-	//REVIEW: better to use noun for plug-in name. e.g. awesomeTabControl :)
 	// Create TabControl function
-	$.fn.createTabControl = function (params, pages) {
+	$.fn.tabControl = function (pages, selectIndex) {
+
+		var $this = $(this);
+
+		$this.pages = pages || [];
 
 		// create elements
 		var tab = $("<div/>");
@@ -18,78 +21,64 @@
 		}
 
 		// add classes
-		tab.addClass(params.tab);
-		headContainer.addClass(params.headContainer);
+		tab.addClass("tab-control");
+		headContainer.addClass("tab-head-container");
 
-		headContainer.children("li").addClass(params.head);
-		pageContainer.children("div").addClass(params.page);
+		headContainer.children("li").addClass("tab-head");
+		pageContainer.children("div").addClass("tab-page");
 
 		// select
-		headContainer.children("li").eq(params.select || 0).addClass(params.headSelected);
-		pageContainer.children("div").eq(params.select || 0).addClass(params.pageSelected);
+		headContainer.children("li").eq(selectIndex || 0).addClass("head-current");
+		pageContainer.children("div").eq(selectIndex || 0).addClass("page-current");
 
 		// initialize events
-		tab.delegate("." + params.head + ":not(." + params.headSelected + ")", "click", function () {
-			$(this).addClass(params.headSelected)
+		tab.delegate(".tab-head:not(.head-current)", "click", function () {
+			$(this).addClass("head-current")
 				.siblings()
-				.removeClass(params.headSelected)
-				.parents("." + params.tab)
-				.find("." + params.page)
+				.removeClass("head-current")
+				.parents(".tab-control")
+				.find(".tab-page")
 				.eq($(this).index())
 				.fadeIn(0)
-				.siblings("." + params.page)
+				.siblings(".tab-page")
 				.hide();
 		});
 
 		// clear childs
-		$(this).empty();
+		$this.empty();
 
 		// append to parent
 		tab.appendTo(this);
 
-		//REVIEW: Local variable $this = $(this) could be defined
-		return $(this);
-	}
+		// Set/Get page text function
+		$this.pageText = function (index, text) {
 
-	//REVIEW: this should be a part of tabControl, not separate function. We return $(this) why not to add pageText function to it?
-	// Set/Get page text function
-	$.fn.pageText = function (index, text) {
+			var page = $this.find(".page-item__").eq(index);
 
-		var page = this.find(".page-item__").eq(index);
+			if (arguments.length === 1) {
+				return page.text();
+			}
 
-		if (arguments.length === 1) {
-			return page.text();
+			page.text(text);
+
+			return $this;
 		}
 
-		page.text(text);
-
-		return this;
+		return $this;
 	}
 
 	// Test example
 	$("#bTabControl").on("click", function () {
 		var strPages = $("#tbTabControl").val();
 		var pagesName = strPages.match(/[\S]+/g);
-		var selectindex = parseInt($("#tbTabControlSelect").val()) - 1;
-
-		//NOTE: This is great that class is used. But commonly no need to pass this class as parameter. Classes for plug-in commonly could be hardcoded. Styles will be rewrited by global document style.
-		var classes = {
-			tab: "tab-control",
-			headContainer: "tab-head-container",
-			head: "tab-head",
-			headSelected: "head-current",
-			page: "tab-page",
-			pageSelected: "page-current",
-			select: selectindex
-		};
-
+		var selectIndex = parseInt($("#tbTabControlSelect").val()) - 1;
 
 		// create TabControl
-		$("#tab-control").createTabControl(classes, pagesName);
+		var tab = $("#tab-control").tabControl(pagesName, selectIndex);
 
 		// set text
 		for (var i = 0; i < pagesName.length; i++) {
-			$("#tab-control").pageText(i, "Here the text of the page: " + pagesName[i]);
+			tab.pageText(i, "Here the text of the page: " + pagesName[i]);
 		}
 	});
 });

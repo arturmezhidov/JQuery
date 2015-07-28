@@ -4,106 +4,78 @@ $(function () {
 	// Spinner plugin
 	$.fn.spinner = function (option) {
 
+		var $this = $(this);
+
 		var defaults = {
 			value: 0,
 			incStep: 1,
 			decStep: 1,
 
-			width: $(this).width(),
+			width: $this.width(),
 			height: 25,
 			borderRadius: 5,
 			borderColor: "#AAA",
 			borderWidth: 1
 		}
 
-		option = $.extend(defaults, option);
+		$this.option = $.extend(defaults, option);
 
 		// calculate buttons size and position
 		var padding = 4;
-		var buttonHeight = option.height / 2;
+		var buttonHeight = $this.option.height / 2;
 		var arrowSize = buttonHeight - (padding * 2);
 		var buttonWidth = (arrowSize * 2) + (padding * 2);
 
-		//NOTE: again about styles in js
-		// styles
-		var spinnerStyle = {
-			width: option.width + "px",
-			height: option.height + "px",
-			display: "inline-table",
-			border: option.borderWidth + "px " + option.borderColor + " solid",
-			"border-radius": option.borderRadius + "px",
-			overflow: "hidden"
-		}
-		var inputStyle = {
-			display: "table-cell",
-			width: "100%",
-			height: "100%",
-			border: "none"
-		}
-		var buttonAreaStyle = {
-			width: buttonWidth + "px",
-			height: "100%",
-			display: "table-cell",
-			background: "#E9E9E9"
-		}
-		var buttonStyle = {
-			width: "100%",
-			height: "50%",
-			cursor: "pointer",
-			position: "relative"
-		}
-		var arrowStyle = {
-			border: arrowSize + "px solid transparent",
-			position: "absolute",
-			right: padding + "px"
-		}
-		var arrowupStyle = {
-			"border-bottom-color": "#888",
-			"border-top": "0",
-			bottom: padding + "px"
-		}
-		var arrowDownStyle = {
-			"border-top-color": "#888",
-			"border-bottom": "0",
-			top: padding + "px"
-		}
-
-		// save input parent
-		var inputParent = $(this).parent();
-
 		// create spinner
 		var spin = $("<div/>")
-			.css(spinnerStyle)
-			.appendTo(inputParent);
+			.addClass("spinner")
+			.css({
+				width: $this.option.width + "px",
+				height: $this.option.height + "px",
+				border: $this.option.borderWidth + "px " + $this.option.borderColor + " solid",
+				"border-radius": $this.option.borderRadius + "px"
+			})
+			.appendTo($this.parent());
 
 		// input (text box)
-		var input = $(this)
-			.css(inputStyle)
-			.val(option.value)
+		var input = $this
+			.addClass("spinner-input")
+			.val($this.option.value)
 			.appendTo(spin);
 
 		// create buttons
 		var buttonArea = $("<div/>")
-			.css(buttonAreaStyle)
+			.addClass("spinner-button-area")
+			.css("width", buttonWidth)
 			.appendTo(spin);
 
 		var buttonUp = $("<div/>")
-			.css(buttonStyle)
+			.addClass("spinner-button")
 			.appendTo(buttonArea);
 
 		var buttonDown = $("<div/>")
-			.css(buttonStyle)
+			.addClass("spinner-button")
 			.appendTo(buttonArea);
 
 		// create arrows
 		$("<div/>")
-			.css(arrowStyle)
-			.css(arrowupStyle)
+			.addClass("spinner-arrow")
+			.addClass("spinner-arrow-up")
+			.css({
+				right: padding + "px",
+				"border-width": arrowSize + "px",
+				bottom: padding + "px"
+			})
 			.appendTo(buttonUp);
 
 		$("<div/>")
-			.css(arrowStyle)
-			.css(arrowDownStyle)
+			.addClass("spinner-arrow")
+			.addClass("spinner-arrow-down")
+			.css({
+				right: padding + "px",
+				"border-width": arrowSize + "px",
+				top: padding + "px"
+			})
 			.appendTo(buttonDown);
 
 		// events
@@ -112,7 +84,7 @@ $(function () {
 			if (isNaN(val)) {
 				input.val("0");
 			} else {
-				input.val(val + option.incStep);
+				input.val(val + $this.option.incStep);
 			}
 		});
 		buttonDown.on("click", function () {
@@ -120,11 +92,11 @@ $(function () {
 			if (isNaN(val)) {
 				input.val("0");
 			} else {
-				input.val(val - option.decStep);
+				input.val(val - $this.option.decStep);
 			}
 		});
 
-		return $(this);
+		return $this;
 	};
 
 	// Test example

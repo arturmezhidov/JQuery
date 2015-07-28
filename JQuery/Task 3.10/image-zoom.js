@@ -3,33 +3,6 @@
 	// create magnifier plugin
 	$.fn.magnifier = function (options) {
 
-		// options
-		var defaults = {
-			size: 100,
-			borderSize: 3,
-			borderColor: "#ABCDEF"
-		};
-
-		//REVIEW: I think better to save options somewhere
-		options = $.extend(defaults, options);
-
-		//NOTE: It would be great if styles be placed in *.css file like previously
-		// styles
-		var style = {
-			display: "none",
-			position: "absolute",
-			"float": "left",
-
-			width: String(options.size) + "px",
-			height: String(options.size) + "px",
-
-			"border-radius": String(options.size / 2 + options.borderSize) + "px",
-			border: String(options.borderSize) + "px solid " + options.borderColor,
-
-			"background-position": "0px 0px",
-			"background-repeat": "no-repeat"
-		};
-
 		return this.each(function () {
 
 			// parent
@@ -45,9 +18,10 @@
 				: parent.attr("src");
 
 			// create magnifier
-			var magni = $("<div/>").appendTo($("body"));
-			magni.css(style);
-			magni.css("background-image", "url('" + src + "')");
+			var magni = $("<div/>")
+				.addClass("magnifier")
+				.appendTo("body")
+				.css("background-image", "url('" + src + "')");
 
 			// calculate ratio
 			var widthRatio = 0;

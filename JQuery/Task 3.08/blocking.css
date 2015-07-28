@@ -1,0 +1,33 @@
+﻿.blockUI-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	background-color: #000;
+
+	-ms-opacity: 0.7;
+	opacity: 0.7;
+
+	cursor: wait;
+}
+
+.blockUI-alerter {
+	position: fixed;
+
+	width: 300px;
+	height: 50px;
+
+	text-align: center;
+
+	background-color: #FFF;
+
+	border: 2px solid red;
+
+	-ms-opacity: 1;
+	opacity: 1;
+}
+
+.blockUI-message {
+	color: red;
+	font:  36px bold ;
+}

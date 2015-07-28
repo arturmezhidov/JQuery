@@ -1,20 +1,19 @@
 ﻿//REVIEW: BLOCKED: https://db.tt/1GEPKAsL
 $(function () {
 
-	//REVIEW: noun
 	// ajax process show plugin
-	$.fn.showAJAX = function (options) {
+	$.fn.AJAXProcess = function (options) {
 
 		var defaults = {
 			isGlobal: true,
 			isLocal: true
 		}
 
-		options = $.extend(defaults, options);
-
 		var $log = $(this);
 
-		if (options.isGlobal) {
+		$log.options = $.extend(defaults, options);
+
+		if ($log.options.isGlobal) {
 			// global
 			$(document)
 				.ajaxStart(function () {
@@ -29,15 +28,16 @@ $(function () {
 				.ajaxError(function (event, jqxhr, settings) {
 					$log.append("<p>ajaxError (global): " + JSON.stringify(event) + ", " + JSON.stringify(jqxhr) + ", " + JSON.stringify(settings) + "</p>");
 				})
-				.ajaxComplete(function (event, jqxhr, settings) {
-					$log.append("<p>ajaxComplete (global): " + JSON.stringify(event) + ", " + JSON.stringify(jqxhr) + ", " + JSON.stringify(settings) + "</p>");
+				.ajaxComplete(function (event) {
+					$log.append("<p>ajaxComplete (global): " + JSON.stringify(event) + "</p>");
 				})
-				.ajaxSuccess(function (event, jqxhr, settings) {
-					$log.append("<p>ajaxSuccess (global): " + JSON.stringify(event) + ", " + JSON.stringify(jqxhr) + ", " + JSON.stringify(settings) + "</p>");
-				});
+				.ajaxSuccess(function (event) {
+					$log.append("<p>ajaxSuccess (global): " + JSON.stringify(event) + "</p>");
+				})
+			;
 		}
 
-		if (options.isLocal) {
+		if ($log.options.isLocal) {
 			// local
 			$.ajax({
 				beforeSend: function () {
@@ -59,7 +59,7 @@ $(function () {
 	}
 
 	// Test example
-	$("#ajaxLog").showAJAX();
+	$("#ajaxLog").AJAXProcess();
 
 	$("#example1").on("click", function () {
 		$.ajax({
